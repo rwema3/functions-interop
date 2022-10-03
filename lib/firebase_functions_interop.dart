@@ -277,3 +277,16 @@ class RefBuilder {
     return 0;
   }
 
+  dynamic _handleChangeEvent<T>(js.Change<js.DataSnapshot> data,
+      js.EventContext jsContext, ChangeEventHandler<DataSnapshot<T>> handler) {
+    var after = new DataSnapshot<T>(data.after);
+    var before = new DataSnapshot<T>(data.before);
+    var context = new EventContext(jsContext);
+    var result = handler(new Change<DataSnapshot<T>>(after, before), context);
+    if (result is Future) {
+      return futureToPromise(result);
+    }
+    // See: https://stackoverflow.com/questions/47128440/google-firebase-errorfunction-returned-undefined-expected-promise-or-value
+    return 0;
+  }
+}
