@@ -200,3 +200,12 @@ class EventContext {
   /// Valid values are: `ADMIN`, `USER`, `UNAUTHENTICATED` and `null`.
   final String authType;
 
+  /// The event’s unique identifier.
+  final String eventId;
+
+  /// Type of event.
+  final String eventType;
+
+  /// An object containing the values of the wildcards in the path parameter
+  /// provided to the ref() method for a Realtime Database trigger.
+  final Map<String, String> params;
