@@ -699,5 +699,3 @@ class UserRecord {
   @protected
   final js.UserRecord nativeInstance;
 
-  /// Whether or not the user is disabled.
-  bool get disabled => nativeInstance.disabled;
