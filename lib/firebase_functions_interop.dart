@@ -332,9 +332,3 @@ class DocumentBuilder {
   /// kind (creation, update, or delete) occurs.
   js.CloudFunction onWrite(ChangeEventHandler<DocumentSnapshot> handler) {
     dynamic wrapper(
-            js.Change<js.DocumentSnapshot> data, js.EventContext context) =>
-        _handleChangeEvent(data, context, handler);
-    return nativeInstance.onWrite(allowInterop(wrapper));
-  }
-
-  dynamic _handleEvent(js.DocumentSnapshot data, js.EventContext jsContext,
