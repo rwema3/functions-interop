@@ -382,6 +382,7 @@ class TopicBuilder {
   final js.TopicBuilder nativeInstance;
 
   TopicBuilder._(this.nativeInstance);
+
   /// Event handler that fires every time an event is published in Pubsub.
   js.CloudFunction onPublish(DataEventHandler<Message> handler) {
     dynamic wrapper(js.Message jsData, js.EventContext jsContext) =>
