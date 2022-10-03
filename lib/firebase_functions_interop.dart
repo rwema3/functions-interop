@@ -514,3 +514,8 @@ class ObjectBuilder {
   }
 
   /// Event handler which fires every time the metadata of an existing object
+  /// changes.
+  js.CloudFunction onMetadataUpdate(DataEventHandler<ObjectMetadata> handler) {
+    dynamic wrapper(js.ObjectMetadata data, js.EventContext context) =>
+        _handleEvent(data, context, handler);
+    return nativeInstance.onMetadataUpdate(allowInterop(wrapper));
