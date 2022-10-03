@@ -313,11 +313,3 @@ class DocumentBuilder {
     return nativeInstance.onCreate(allowInterop(wrapper));
   }
 
-  /// Event handler that fires every time data is deleted from Cloud Firestore.
-  js.CloudFunction onDelete(DataEventHandler<DocumentSnapshot> handler) {
-    dynamic wrapper(js.DocumentSnapshot data, js.EventContext context) =>
-        _handleEvent(data, context, handler);
-    return nativeInstance.onDelete(allowInterop(wrapper));
-  }
-
-  /// Event handler that fires every time data is updated in Cloud Firestore.
