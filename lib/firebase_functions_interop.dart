@@ -290,3 +290,19 @@ class RefBuilder {
     return 0;
   }
 }
+
+class FirestoreFunctions {
+  final js.FirebaseFunctions _functions;
+
+  FirestoreFunctions._(this._functions);
+
+  DocumentBuilder document(String path) =>
+      new DocumentBuilder._(_functions.firestore.document(path));
+}
+
+class DocumentBuilder {
+  @protected
+  final js.DocumentBuilder nativeInstance;
+
+  DocumentBuilder._(this.nativeInstance);
+
