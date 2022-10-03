@@ -714,3 +714,5 @@ class UserRecord {
   /// Additional metadata about the user.
   UserMetadata get metadata => nativeInstance.metadata;
 
+  /// The user's photo URL.
+  String get photoURL => nativeInstance.photoURL;
