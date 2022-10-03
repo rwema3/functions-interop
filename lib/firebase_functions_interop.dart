@@ -451,12 +451,3 @@ class Message {
 class StorageFunctions {
   final js.FirebaseFunctions _functions;
   StorageFunctions._(this._functions);
-
-  /// Registers a Cloud Function scoped to a specific storage [bucket].
-  BucketBuilder bucket(String path) =>
-      new BucketBuilder._(_functions.storage.bucket(path));
-
-  /// Registers a Cloud Function scoped to the default storage bucket for the project.
-  ObjectBuilder object() => new ObjectBuilder._(_functions.storage.object());
-}
-
