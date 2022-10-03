@@ -545,3 +545,27 @@ class ObjectMetadata {
   String get bucket => nativeInstance.bucket;
 
   /// The value of the `Cache-Control` header, used to determine whether Internet
+  /// caches are allowed to cache public data for an object.
+  String get cacheControl => nativeInstance.cacheControl;
+
+  /// Specifies the number of originally uploaded objects from which a composite
+  /// object was created.
+  int get componentCount => nativeInstance.componentCount;
+
+  /// The value of the `Content-Disposition` header, used to specify presentation
+  /// information about the data being transmitted.
+  String get contentDisposition => nativeInstance.contentDisposition;
+
+  /// Content encoding to indicate that an object is compressed (for example,
+  /// with gzip compression) while maintaining its Content-Type.
+  String get contentEncoding => nativeInstance.contentEncoding;
+
+  /// ISO 639-1 language code of the content.
+  String get contentLanguage => nativeInstance.contentLanguage;
+
+  /// The object's content type, also known as the MIME type.
+  String get contentType => nativeInstance.contentType;
+
+  /// The object's CRC32C hash. All Google Cloud Storage objects have a CRC32C
+  /// hash or MD5 hash.
+  String get crc32c => nativeInstance.crc32c;
