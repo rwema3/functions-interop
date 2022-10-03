@@ -306,3 +306,10 @@ class DocumentBuilder {
 
   DocumentBuilder._(this.nativeInstance);
 
+  /// Event handler that fires every time new data is created in Cloud Firestore.
+  js.CloudFunction onCreate(DataEventHandler<DocumentSnapshot> handler) {
+    dynamic wrapper(js.DocumentSnapshot data, js.EventContext context) =>
+        _handleEvent(data, context, handler);
+    return nativeInstance.onCreate(allowInterop(wrapper));
+  }
+
