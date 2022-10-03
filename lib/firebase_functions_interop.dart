@@ -176,15 +176,3 @@ class EventContext {
   EventContext._(this.auth, this.authType, this.eventId, this.eventType,
       this.params, this.resource, this.timestamp);
 
-  factory EventContext(js.EventContext data) {
-    return new EventContext._(
-      data.auth,
-      data.authType,
-      data.eventId,
-      data.eventType,
-      new Map<String, String>.from(dartify(data.params)),
-      data.resource,
-      DateTime.parse(data.timestamp),
-    );
-  }
-
