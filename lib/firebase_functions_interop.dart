@@ -209,3 +209,10 @@ class EventContext {
   /// An object containing the values of the wildcards in the path parameter
   /// provided to the ref() method for a Realtime Database trigger.
   final Map<String, String> params;
+
+  /// The resource that emitted the event.
+  final js.EventContextResource resource;
+
+  /// Timestamp for the event.
+  final DateTime timestamp;
+}
