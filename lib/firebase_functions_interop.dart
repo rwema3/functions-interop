@@ -671,3 +671,10 @@ class UserBuilder {
         _handleEvent(jsData, jsContext, handler);
     return nativeInstance.onCreate(allowInterop(wrapper));
   }
+
+  /// Event handler that fires every time a Firebase Authentication user is deleted.
+  js.CloudFunction onDelete(DataEventHandler<UserRecord> handler) {
+    dynamic wrapper(js.UserRecord jsData, js.EventContext jsContext) =>
+        _handleEvent(jsData, jsContext, handler);
+    return nativeInstance.onDelete(allowInterop(wrapper));
+  }
