@@ -111,3 +111,12 @@ class FirebaseFunctions {
   FirebaseFunctions runWith(js.RuntimeOptions options) {
     return FirebaseFunctions._(_functions.runWith(options));
   }
+
+  /// Export [function] under specified [key].
+  ///
+  /// For HTTPS functions the [key] defines URL path prefix.
+  operator []=(String key, dynamic function) {
+    assert(function is js.HttpsFunction || function is js.CloudFunction);
+    setExport(key, function);
+  }
+}
