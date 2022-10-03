@@ -96,3 +96,18 @@ class FirebaseFunctions {
         https = HttpsFunctions._(functions),
         database = DatabaseFunctions._(functions),
         firestore = FirestoreFunctions._(functions),
+        pubsub = PubsubFunctions._(functions),
+        storage = StorageFunctions._(functions),
+        auth = AuthFunctions._(functions);
+
+  /// Configures the regions to which to deploy and run a function.
+  ///
+  /// For a list of valid values see https://firebase.google.com/docs/functions/locations
+  FirebaseFunctions region(String region) {
+    return FirebaseFunctions._(_functions.region(region));
+  }
+
+  /// Configures memory allocation and timeout for a function.
+  FirebaseFunctions runWith(js.RuntimeOptions options) {
+    return FirebaseFunctions._(_functions.runWith(options));
+  }
