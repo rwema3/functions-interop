@@ -716,7 +716,3 @@ class UserRecord {
 
   /// The user's photo URL.
   String get photoURL => nativeInstance.photoURL;
-
-  /// An array of providers (for example, Google, Facebook) linked to the user.
-  List<UserInfo> get providerData => nativeInstance.providerData;
-
