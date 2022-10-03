@@ -610,3 +610,14 @@ class ObjectMetadata {
   /// The current state of this object resource.
   ///
   /// The value can be either "exists" (for object creation and updates) or
+  /// "not_exists" (for object deletion and moves).
+  String get resourceState => nativeInstance.resourceState;
+
+  /// Link to access the object, assuming you have sufficient permissions.
+  String get selfLink => nativeInstance.selfLink;
+
+  /// The value of the `Content-Length` header, used to determine the length of
+  /// this object data in bytes.
+  String get size => nativeInstance.size;
+
+  /// Storage class of this object.
