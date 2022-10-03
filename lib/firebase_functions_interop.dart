@@ -356,4 +356,3 @@ class DocumentBuilder {
     var after = new DocumentSnapshot(data.after, firestore);
     var before = new DocumentSnapshot(data.before, firestore);
     var context = new EventContext(jsContext);
-    var result = handler(new Change<DocumentSnapshot>(after, before), context);
