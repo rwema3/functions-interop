@@ -188,15 +188,3 @@ class EventContext {
     );
   }
 
-  /// Authentication information for the user that triggered the function.
-  ///
-  /// For an unauthenticated user, this field is null. For event types that do
-  /// not provide user information (all except Realtime Database) or for
-  /// Firebase admin users, this field will not exist.
-  final js.EventAuthInfo auth;
-
-  /// The level of permissions for a user.
-  ///
-  /// Valid values are: `ADMIN`, `USER`, `UNAUTHENTICATED` and `null`.
-  final String authType;
-
