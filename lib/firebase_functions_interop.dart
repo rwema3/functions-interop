@@ -222,15 +222,3 @@ class DatabaseFunctions {
   final js.FirebaseFunctions _functions;
   DatabaseFunctions._(this._functions);
 
-  /// Returns reference builder for specified [path] in Realtime Database.
-  RefBuilder ref(String path) =>
-      new RefBuilder._(_functions.database.ref(path));
-}
-
-/// The Firebase Realtime Database reference builder.
-class RefBuilder {
-  final js.RefBuilder nativeInstance;
-
-  RefBuilder._(this.nativeInstance);
-
-  /// Event handler that fires every time new data is created in Firebase
