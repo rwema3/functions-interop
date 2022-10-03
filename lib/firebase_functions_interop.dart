@@ -234,9 +234,3 @@ class RefBuilder {
   RefBuilder._(this.nativeInstance);
 
   /// Event handler that fires every time new data is created in Firebase
-  /// Realtime Database.
-  js.CloudFunction onCreate<T>(DataEventHandler<DataSnapshot<T>> handler) {
-    dynamic wrapper(js.DataSnapshot data, js.EventContext context) =>
-        _handleDataEvent<T>(data, context, handler);
-    return nativeInstance.onCreate(allowInterop(wrapper));
-  }
