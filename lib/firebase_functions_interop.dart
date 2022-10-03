@@ -494,3 +494,12 @@ class ObjectBuilder {
   /// that are overwritten or are deleted as part of the bucket's lifecycle
   /// configuration. For buckets with object versioning enabled, this is not
   /// sent when an object is archived, even if archival occurs via the
+  /// storage.objects.delete method.
+  js.CloudFunction onDelete(DataEventHandler<ObjectMetadata> handler) {
+    dynamic wrapper(js.ObjectMetadata data, js.EventContext context) =>
+        _handleEvent(data, context, handler);
+    return nativeInstance.onDelete(allowInterop(wrapper));
+  }
+
+  /// Event handler which fires every time a Google Cloud Storage object
+  /// creation occurs.
