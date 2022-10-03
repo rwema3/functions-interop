@@ -216,3 +216,9 @@ class EventContext {
   /// Timestamp for the event.
   final DateTime timestamp;
 }
+
+/// Realtime Database functions namespace.
+class DatabaseFunctions {
+  final js.FirebaseFunctions _functions;
+  DatabaseFunctions._(this._functions);
+
