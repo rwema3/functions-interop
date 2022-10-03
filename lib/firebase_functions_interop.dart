@@ -701,10 +701,3 @@ class UserRecord {
 
   /// Whether or not the user is disabled.
   bool get disabled => nativeInstance.disabled;
-
-  /// The user's display name.
-  String get displayName => nativeInstance.displayName;
-
-  /// The user's primary email, if set.
-  String get email => nativeInstance.email;
-
