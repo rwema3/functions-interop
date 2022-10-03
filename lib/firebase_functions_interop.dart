@@ -519,3 +519,29 @@ class ObjectBuilder {
     dynamic wrapper(js.ObjectMetadata data, js.EventContext context) =>
         _handleEvent(data, context, handler);
     return nativeInstance.onMetadataUpdate(allowInterop(wrapper));
+  }
+
+  dynamic _handleEvent(js.ObjectMetadata jsData, js.EventContext jsContext,
+      DataEventHandler<ObjectMetadata> handler) {
+    final data = new ObjectMetadata(jsData);
+    final context = new EventContext(jsContext);
+    var result = handler(data, context);
+    if (result is Future) {
+      return futureToPromise(result);
+    }
+    // See: https://stackoverflow.com/questions/47128440/google-firebase-errorfunction-returned-undefined-expected-promise-or-value
+    return 0;
+  }
+}
+
+/// Interface representing a Google Google Cloud Storage object metadata object.
+class ObjectMetadata {
+  ObjectMetadata(js.ObjectMetadata this.nativeInstance);
+
+  @protected
+  final js.ObjectMetadata nativeInstance;
+
+  /// Storage bucket that contains the object.
+  String get bucket => nativeInstance.bucket;
+
+  /// The value of the `Cache-Control` header, used to determine whether Internet
