@@ -409,16 +409,3 @@ class ScheduleBuilder {
 
   ScheduleBuilder._(this.nativeInstance);
 
-  /// Event handler that fires every time a schedule occurs.
-  js.CloudFunction onRun(DataEventHandler<Message> handler) {
-    dynamic wrapper(js.EventContext jsContext) =>
-        _handleEvent(jsContext, handler);
-    return nativeInstance.onRun(allowInterop(wrapper));
-  }
-    
-  dynamic _handleEvent(js.EventContext jsContext,
-      DataEventHandler<Null> handler) {
-    final context = new EventContext(jsContext);
-    var result = handler(null, context);
-    if (result is Future) {
-      return futureToPromise(result);
