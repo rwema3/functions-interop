@@ -720,3 +720,7 @@ class UserRecord {
   /// An array of providers (for example, Google, Facebook) linked to the user.
   List<UserInfo> get providerData => nativeInstance.providerData;
 
+  /// The user's uid.
+  String get uid => nativeInstance.uid;
+
+  /// Returns a JSON-serializable representation of this object.
