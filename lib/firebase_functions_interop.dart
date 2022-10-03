@@ -629,3 +629,21 @@ class ObjectMetadata {
       : DateTime.parse(nativeInstance.timeCreated);
 
   /// The deletion time of this object.
+  ///
+  /// Returned only if this version of the object has been deleted.
+  DateTime get timeDeleted => nativeInstance.timeDeleted == null
+      ? null
+      : DateTime.parse(nativeInstance.timeDeleted);
+
+  /// The modification time of this object.
+  DateTime get updated => nativeInstance.updated == null
+      ? null
+      : DateTime.parse(nativeInstance.updated);
+}
+
+class CustomerEncryption {
+  final String encryptionAlgorithm;
+  final String keySha256;
+
+  CustomerEncryption({this.encryptionAlgorithm, this.keySha256});
+}
