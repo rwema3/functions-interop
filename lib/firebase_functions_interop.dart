@@ -264,3 +264,8 @@ class RefBuilder {
         _handleChangeEvent<T>(data, context, handler);
     return nativeInstance.onWrite(allowInterop(wrapper));
   }
+
+  dynamic _handleDataEvent<T>(js.DataSnapshot data, js.EventContext jsContext,
+      FutureOr<void> handler(DataSnapshot<T> data, EventContext context)) {
+    var snapshot = new DataSnapshot<T>(data);
+    var context = new EventContext(jsContext);
