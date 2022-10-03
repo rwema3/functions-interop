@@ -724,3 +724,5 @@ class UserRecord {
   String get uid => nativeInstance.uid;
 
   /// Returns a JSON-serializable representation of this object.
+  dynamic toJson() => dartify(nativeInstance.toJSON());
+}
