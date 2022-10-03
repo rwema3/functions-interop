@@ -367,3 +367,18 @@ class DocumentBuilder {
 
 class PubsubFunctions {
   final js.FirebaseFunctions _functions;
+
+  PubsubFunctions._(this._functions);
+
+  TopicBuilder topic(String path) =>
+      new TopicBuilder._(_functions.pubsub.topic(path));
+
+  ScheduleBuilder schedule(String expression) =>
+      new ScheduleBuilder._(_functions.pubsub.schedule(expression));
+}
+
+class TopicBuilder {
+  @protected
+  final js.TopicBuilder nativeInstance;
+
+  TopicBuilder._(this.nativeInstance);
