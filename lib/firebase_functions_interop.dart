@@ -469,13 +469,3 @@ class BucketBuilder {
   /// Storage object builder interface scoped to the specified storage bucket.
   ObjectBuilder object() => new ObjectBuilder._(nativeInstance.object());
 }
-
-class ObjectBuilder {
-  @protected
-  final js.ObjectBuilder nativeInstance;
-
-  ObjectBuilder._(this.nativeInstance);
-
-  /// Event handler sent only when a bucket has enabled object versioning.
-  ///
-  /// This event indicates that the live version of an object has become an
