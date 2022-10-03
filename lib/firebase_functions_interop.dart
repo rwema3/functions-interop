@@ -594,3 +594,19 @@ class ObjectMetadata {
   /// or MD5 hash.
   String get md5Hash => nativeInstance.md5Hash;
 
+  /// Media download link.
+  String get mediaLink => nativeInstance.mediaLink;
+
+  /// User-provided metadata.
+  Map<String, dynamic> get metadata => dartify(nativeInstance.metadata);
+
+  /// Meta-generation version number that changes each time the object's metadata
+  /// is updated.
+  String get metageneration => nativeInstance.metageneration;
+
+  /// The object's name.
+  String get name => nativeInstance.name;
+
+  /// The current state of this object resource.
+  ///
+  /// The value can be either "exists" (for object creation and updates) or
