@@ -134,19 +134,3 @@ class Config {
   ///
   /// This method expects keys to be fully qualified (namespaced), e.g.
   /// `some_service.client_secret` or `some_service.url`.
-  /// This is different from native JS implementation where namespaced
-  /// keys are broken into nested JS object structure, e.g.
-  /// `functions.config().some_service.client_secret`.
-  dynamic get(String key) {
-    final List<String> parts = key.split('.');
-    var data = dartify(_functions.config());
-    var value;
-    for (var subKey in parts) {
-      if (data is! Map) return null;
-      value = data[subKey];
-      if (value == null) break;
-      data = value;
-    }
-    return value;
-  }
-}
