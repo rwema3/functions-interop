@@ -621,11 +621,3 @@ class ObjectMetadata {
   String get size => nativeInstance.size;
 
   /// Storage class of this object.
-  String get storageClass => nativeInstance.storageClass;
-
-  /// The creation time of this object.
-  DateTime get timeCreated => nativeInstance.timeCreated == null
-      ? null
-      : DateTime.parse(nativeInstance.timeCreated);
-
-  /// The deletion time of this object.
