@@ -269,3 +269,5 @@ class RefBuilder {
       FutureOr<void> handler(DataSnapshot<T> data, EventContext context)) {
     var snapshot = new DataSnapshot<T>(data);
     var context = new EventContext(jsContext);
+    var result = handler(snapshot, context);
+    if (result is Future) {
