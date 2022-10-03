@@ -678,17 +678,3 @@ class UserBuilder {
         _handleEvent(jsData, jsContext, handler);
     return nativeInstance.onDelete(allowInterop(wrapper));
   }
-
-  dynamic _handleEvent(js.UserRecord jsData, js.EventContext jsContext,
-      DataEventHandler<UserRecord> handler) {
-    final data = new UserRecord(jsData);
-    final context = new EventContext(jsContext);
-    var result = handler(data, context);
-    if (result is Future) {
-      return futureToPromise(result);
-    }
-    // See: https://stackoverflow.com/questions/47128440/google-firebase-errorfunction-returned-undefined-expected-promise-or-value
-    return 0;
-  }
-}
-
