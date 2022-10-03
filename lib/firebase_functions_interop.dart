@@ -342,3 +342,5 @@ class DocumentBuilder {
     final firestore = new Firestore(data.ref.firestore);
     final snapshot = new DocumentSnapshot(data, firestore);
     final context = new EventContext(jsContext);
+    var result = handler(snapshot, context);
+    if (result is Future) {
