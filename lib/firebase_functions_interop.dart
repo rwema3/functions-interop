@@ -326,9 +326,3 @@ class DocumentBuilder {
             js.Change<js.DocumentSnapshot> data, js.EventContext context) =>
         _handleChangeEvent(data, context, handler);
     return nativeInstance.onUpdate(allowInterop(wrapper));
-  }
-
-  /// Event handler that fires every time a Cloud Firestore write of any
-  /// kind (creation, update, or delete) occurs.
-  js.CloudFunction onWrite(ChangeEventHandler<DocumentSnapshot> handler) {
-    dynamic wrapper(
