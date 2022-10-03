@@ -440,3 +440,14 @@ class Message {
 
   /// The data payload of this message object as a base64-encoded string.
   String get data => nativeInstance.data;
+
+  /// The JSON data payload of this message object, if any.
+  dynamic get json => dartify(nativeInstance.json);
+
+  /// Returns a JSON-serializable representation of this object.
+  dynamic toJson() => dartify(nativeInstance.toJSON());
+}
+
+class StorageFunctions {
+  final js.FirebaseFunctions _functions;
+  StorageFunctions._(this._functions);
