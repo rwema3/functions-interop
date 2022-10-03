@@ -658,16 +658,3 @@ class AuthFunctions {
   UserBuilder user() => new UserBuilder._(_functions.auth.user());
 }
 
-/// The Firebase Authentication user builder interface.
-class UserBuilder {
-  @protected
-  final js.UserBuilder nativeInstance;
-
-  UserBuilder._(this.nativeInstance);
-
-  /// Event handler that fires every time a Firebase Authentication user is created.
-  js.CloudFunction onCreate(DataEventHandler<UserRecord> handler) {
-    dynamic wrapper(js.UserRecord jsData, js.EventContext jsContext) =>
-        _handleEvent(jsData, jsContext, handler);
-    return nativeInstance.onCreate(allowInterop(wrapper));
-  }
