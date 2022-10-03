@@ -579,18 +579,3 @@ class ObjectMetadata {
       keySha256: dartified['keySha256'],
     );
   }
-
-  /// Generation version number that changes each time the object is overwritten.
-  String get generation => nativeInstance.generation;
-
-  /// The ID of the object, including the bucket name, object name, and generation
-  /// number.
-  String get id => nativeInstance.id;
-
-  /// The kind of the object, which is always `storage#object`.
-  String get kind => nativeInstance.kind;
-
-  /// MD5 hash for the object. All Google Cloud Storage objects have a CRC32C hash
-  /// or MD5 hash.
-  String get md5Hash => nativeInstance.md5Hash;
-
