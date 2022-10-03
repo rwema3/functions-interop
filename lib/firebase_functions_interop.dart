@@ -569,13 +569,3 @@ class ObjectMetadata {
   /// The object's CRC32C hash. All Google Cloud Storage objects have a CRC32C
   /// hash or MD5 hash.
   String get crc32c => nativeInstance.crc32c;
-
-  /// Customer-supplied encryption key.
-  CustomerEncryption get customerEncryption {
-    final dartified = dartify(nativeInstance.customerEncryption);
-    if (dartified == null) return null;
-    return new CustomerEncryption(
-      encryptionAlgorithm: dartified['encryptionAlgorithm'],
-      keySha256: dartified['keySha256'],
-    );
-  }
