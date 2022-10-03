@@ -348,7 +348,3 @@ class DocumentBuilder {
     }
     // See: https://stackoverflow.com/questions/47128440/google-firebase-errorfunction-returned-undefined-expected-promise-or-value
     return 0;
-  }
-
-  dynamic _handleChangeEvent(js.Change<js.DocumentSnapshot> data,
-      js.EventContext jsContext, ChangeEventHandler<DocumentSnapshot> handler) {
