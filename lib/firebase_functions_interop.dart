@@ -120,3 +120,17 @@ class FirebaseFunctions {
     setExport(key, function);
   }
 }
+
+/// Provides access to environment configuration of Firebase Functions.
+///
+/// See also:
+/// - [https://firebase.google.com/docs/functions/config-env](https://firebase.google.com/docs/functions/config-env)
+class Config {
+  final js.FirebaseFunctions _functions;
+
+  Config._(this._functions);
+
+  /// Returns configuration value specified by it's [key].
+  ///
+  /// This method expects keys to be fully qualified (namespaced), e.g.
+  /// `some_service.client_secret` or `some_service.url`.
