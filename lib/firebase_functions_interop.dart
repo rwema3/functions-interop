@@ -338,3 +338,7 @@ class DocumentBuilder {
   }
 
   dynamic _handleEvent(js.DocumentSnapshot data, js.EventContext jsContext,
+      DataEventHandler<DocumentSnapshot> handler) {
+    final firestore = new Firestore(data.ref.firestore);
+    final snapshot = new DocumentSnapshot(data, firestore);
+    final context = new EventContext(jsContext);
