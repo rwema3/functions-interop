@@ -487,10 +487,3 @@ class ObjectBuilder {
     return nativeInstance.onArchive(allowInterop(wrapper));
   }
 
-  /// Event handler which fires every time a Google Cloud Storage deletion
-  /// occurs.
-  ///
-  /// Sent when an object has been permanently deleted. This includes objects
-  /// that are overwritten or are deleted as part of the bucket's lifecycle
-  /// configuration. For buckets with object versioning enabled, this is not
-  /// sent when an object is archived, even if archival occurs via the
