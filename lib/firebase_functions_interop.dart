@@ -503,3 +503,8 @@ class ObjectBuilder {
 
   /// Event handler which fires every time a Google Cloud Storage object
   /// creation occurs.
+  ///
+  /// Sent when a new object (or a new generation of an existing object) is
+  /// successfully created in the bucket. This includes copying or rewriting an
+  /// existing object. A failed upload does not trigger this event.
+  js.CloudFunction onFinalize(DataEventHandler<ObjectMetadata> handler) {
