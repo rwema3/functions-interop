@@ -460,3 +460,12 @@ class StorageFunctions {
   ObjectBuilder object() => new ObjectBuilder._(_functions.storage.object());
 }
 
+class BucketBuilder {
+  @protected
+  final js.BucketBuilder nativeInstance;
+
+  BucketBuilder._(this.nativeInstance);
+
+  /// Storage object builder interface scoped to the specified storage bucket.
+  ObjectBuilder object() => new ObjectBuilder._(nativeInstance.object());
+}
