@@ -422,3 +422,21 @@ class ScheduleBuilder {
     var result = handler(null, context);
     if (result is Future) {
       return futureToPromise(result);
+    }
+    // See: https://stackoverflow.com/questions/47128440/google-firebase-errorfunction-returned-undefined-expected-promise-or-value
+    return 0;
+  }
+}
+
+class Message {
+  Message(js.Message this.nativeInstance);
+
+  @protected
+  final js.Message nativeInstance;
+
+  /// User-defined attributes published with the message, if any.
+  Map<String, String> get attributes =>
+      new Map<String, String>.from(dartify(nativeInstance.attributes));
+
+  /// The data payload of this message object as a base64-encoded string.
+  String get data => nativeInstance.data;
