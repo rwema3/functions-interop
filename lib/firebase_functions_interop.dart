@@ -150,3 +150,15 @@ class Config {
     return value;
   }
 }
+
+/// Container for events that change state, such as Realtime Database or
+/// Cloud Firestore `onWrite` and `onUpdate`.
+class Change<T> {
+  Change(this.after, this.before);
+
+  /// The state after the event.
+  final T after;
+
+  /// The state prior to the event.
+  final T before;
+}
