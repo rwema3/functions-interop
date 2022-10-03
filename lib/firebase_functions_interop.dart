@@ -352,3 +352,7 @@ class DocumentBuilder {
 
   dynamic _handleChangeEvent(js.Change<js.DocumentSnapshot> data,
       js.EventContext jsContext, ChangeEventHandler<DocumentSnapshot> handler) {
+    final firestore = new Firestore(data.after.ref.firestore);
+    var after = new DocumentSnapshot(data.after, firestore);
+    var before = new DocumentSnapshot(data.before, firestore);
+    var context = new EventContext(jsContext);
