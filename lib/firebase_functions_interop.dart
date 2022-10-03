@@ -162,3 +162,17 @@ class Change<T> {
   /// The state prior to the event.
   final T before;
 }
+
+/// The context in which an event occurred.
+///
+/// An EventContext describes:
+///
+///   * The time an event occurred.
+///   * A unique identifier of the event.
+///   * The resource on which the event occurred, if applicable.
+///   * Authorization of the request that triggered the event, if applicable
+///     and available.
+class EventContext {
+  EventContext._(this.auth, this.authType, this.eventId, this.eventType,
+      this.params, this.resource, this.timestamp);
+
