@@ -647,3 +647,14 @@ class CustomerEncryption {
 
   CustomerEncryption({this.encryptionAlgorithm, this.keySha256});
 }
+
+/// Namespace for Firebase Authentication functions.
+class AuthFunctions {
+  final js.FirebaseFunctions _functions;
+
+  AuthFunctions._(this._functions);
+
+  /// Registers a Cloud Function to handle user authentication events.
+  UserBuilder user() => new UserBuilder._(_functions.auth.user());
+}
+
