@@ -708,9 +708,3 @@ class UserRecord {
   /// The user's primary email, if set.
   String get email => nativeInstance.email;
 
-  /// Whether or not the user's primary email is verified.
-  bool get emailVerified => nativeInstance.emailVerified;
-
-  /// Additional metadata about the user.
-  UserMetadata get metadata => nativeInstance.metadata;
-
