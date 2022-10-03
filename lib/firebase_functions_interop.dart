@@ -692,3 +692,10 @@ class UserBuilder {
   }
 }
 
+/// Interface representing a user.
+class UserRecord {
+  UserRecord(js.UserRecord this.nativeInstance);
+
+  @protected
+  final js.UserRecord nativeInstance;
+
