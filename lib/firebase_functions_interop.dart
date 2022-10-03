@@ -508,9 +508,3 @@ class ObjectBuilder {
   /// successfully created in the bucket. This includes copying or rewriting an
   /// existing object. A failed upload does not trigger this event.
   js.CloudFunction onFinalize(DataEventHandler<ObjectMetadata> handler) {
-    dynamic wrapper(js.ObjectMetadata data, js.EventContext context) =>
-        _handleEvent(data, context, handler);
-    return nativeInstance.onFinalize(allowInterop(wrapper));
-  }
-
-  /// Event handler which fires every time the metadata of an existing object
