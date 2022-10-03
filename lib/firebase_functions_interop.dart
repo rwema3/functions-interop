@@ -240,3 +240,27 @@ class RefBuilder {
         _handleDataEvent<T>(data, context, handler);
     return nativeInstance.onCreate(allowInterop(wrapper));
   }
+
+  /// Event handler that fires every time data is deleted from Firebase
+  /// Realtime Database.
+  js.CloudFunction onDelete<T>(DataEventHandler<DataSnapshot<T>> handler) {
+    dynamic wrapper(js.DataSnapshot data, js.EventContext context) =>
+        _handleDataEvent<T>(data, context, handler);
+    return nativeInstance.onDelete(allowInterop(wrapper));
+  }
+
+  /// Event handler that fires every time data is updated in Firebase Realtime
+  /// Database.
+  js.CloudFunction onUpdate<T>(ChangeEventHandler<DataSnapshot<T>> handler) {
+    dynamic wrapper(js.Change<js.DataSnapshot> data, js.EventContext context) =>
+        _handleChangeEvent<T>(data, context, handler);
+    return nativeInstance.onUpdate(allowInterop(wrapper));
+  }
+
+  /// Event handler that fires every time a Firebase Realtime Database write of
+  /// any kind (creation, update, or delete) occurs.
+  js.CloudFunction onWrite<T>(ChangeEventHandler<DataSnapshot<T>> handler) {
+    dynamic wrapper(js.Change<js.DataSnapshot> data, js.EventContext context) =>
+        _handleChangeEvent<T>(data, context, handler);
+    return nativeInstance.onWrite(allowInterop(wrapper));
+  }
