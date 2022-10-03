@@ -271,3 +271,9 @@ class RefBuilder {
     var context = new EventContext(jsContext);
     var result = handler(snapshot, context);
     if (result is Future) {
+      return futureToPromise(result);
+    }
+    // See: https://stackoverflow.com/questions/47128440/google-firebase-errorfunction-returned-undefined-expected-promise-or-value
+    return 0;
+  }
+
